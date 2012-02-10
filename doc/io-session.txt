@@ -1,0 +1,38 @@
+Io> setSlot("A", 42)
+==> 42
+Io> setSlot("B", method(setSlot("A",1);A))
+==> IoBlock+0
+Io> A
+==> 42
+Io> B
+==> 1
+Io> 1 + (5) * (4) - (2) / (0)
+==> Infinity
+Io> Map slotNames
+atIfAbsentPut removeAt empty atPut hasKey hasValue size at
+==> IoMap+0
+Io> Map clone slotNames
+==> IoMap+12
+Io> Object slotNames
+setSlot cloneWithoutInit perform type evalArg init slotNames print clone
+==> IoObject+0
+Io> Map clone atPut(0, 1) at (0)
+==> 1
+Io> 1 type
+==> Number
+Io> Core slotNames
+false Message nil Object true Number CFunction Map
+==> IoObject+1
+Io> Lobby slotNames
+Lobby Protos
+==> IoObject+2
+Io> Map type type
+==> Sequence
+Io> Map atPut(0, Block method(a, a size))
+==> IoMap+0
+Io> Map at(0) call (Map)
+==> 1
+Io> 1 type
+==> Number
+Io> "1" type
+==> Sequence

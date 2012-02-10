@@ -1,0 +1,377 @@
+<html>
+<head>
+<title>Synrc Io Language CLR</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="author" content="Synrc Research Center">
+<meta name="copyright" content="c 2006 Synrc Research Center">
+<meta name="keywords" content="business process,investigation,expertise,prototyping,software,software engineering,research center" lang="en">
+<meta name="date" content="2006-11-29T05:00:00+02:00">
+<link href="../../synrc.css" type="text/css" rel="stylesheet">
+
+</head>
+<body alink="midnightblue" bgcolor="white" link="midnightblue" text="darkslategray" vlink="midnightblue" 
+    topmargin=10 leftmargin=1 rightmargin=0 bottommargin=10 marginwidth=10 marginheight=10>
+
+<!-- Logo -->
+<div style="width:600px;margin-left:200px;height:78px;margin-top:20px;">
+    <div style="float:left; font-size: 21pt; font-family: Palatino Linotype;margin-top: 42px; ">
+        <b><font color="#0033cc">syn</font><font color="#ff3333">rc</font> research center</b>
+    </div>
+    <div style="float:right;margin-top: 4px; ">
+        <a href="../../index.htm"><img src="../../images/synrc.png" border="0"></a>
+    </div>
+</div>
+
+<hr size="1" width=100%>
+
+<!-- Menu -->
+<div style="width:600px;margin-left:200px;">
+    <table bgcolor="white" cellpadding="5" width="100%" >
+    <tbody bgcolor="#eeeeee"><tr height="50" align="center" valign="center">
+        <td width="12%"> <div class="menu"><a href="../../index.htm">Sync</a></div> </td>
+        <td width="12%"> <div class="menu"><a href="../../research.htm">Research</a></div> </td>
+        <td width="12%"> <div class="menu"><a href="../../labs.htm">Labs</a></div> </td>
+        <td width="12%"> <div class="menu"><a href="../../feedback.htm">Feedback</a></div> </td>
+        <td width="12%"> </td>
+        <td width="12%"> </td>
+        <td background="../../images/dots1.jpg" width="12%"> </td>
+        <td background="../../images/dots2.jpg" width="12%"> </td>
+    </tr></tbody></table>
+</div>
+
+<!-- Current Path and Language Select -->
+<div style="width:600px;margin-left:200px;height:16px;font-size:10pt;">
+    <div style="float:right;" align=right>
+        Compilers Lab
+    </div>
+</div>
+
+<!-- Article Name -->
+<div style="width:100%;font-weight: bold; font-family: Lucida Sans Unicode;margin-top:20px;">
+	<p>
+	<div style="width:390px;float:left;margin-left:400px;font-variant:small-caps;">
+		<font color="#ff3333" size="6"><b>Язык программирования Io</b></font>
+	</div>
+	<div style="width:290px;float:left;margin-left:500px;">
+		<font size=4><b>Введение</b></font>
+	</div>
+	<p>
+</div>
+
+</div>
+
+<div style="width:100%;float:left;margin-top:30px;">
+<div style="width:200px;margin-left:200px;float:left;">
+	<img src="../images/Io.png" border=0>
+	<p><font size=2>Io Language</font></p>
+</div>
+<div style="width:400px;float:left;">
+	<p align=justify><font size=2>При написании этого текста стояла задача затронуть
+	все аспекты языка в максимально сжатой форме и описывать язык по возможности
+	аксиоматически, не упоминая понятия которые будут раскрываться в дальнейшем (хотя
+	в принципе это невоможно). Предполагается, что читатель с базовыми концепциями
+	программирования, и с Ъ ОПП системами программирования, типа CLOS или Smalltalk, а
+	также читал оригинальный <a href="http://www.iolanguage.com/scm/git/checkout/Io/docs/IoGuide.html">The Io Programming Guide</a>,
+	но автору будет очень приятно если
+	кто-то успешно освоит язык пользуясь этим неформальным академическим введением.</font></p>
+</div>
+<div style="width:200px;margin-left:20px;float:left;">
+
+	<p><a href="overview.htm">Введение</a></P>
+	<p><a href="primitives.htm">Часть 1. Примитивы</a></P>
+	<p><a href="object.htm">Часть 2. Object</a></P>
+
+</div>
+</div>
+
+
+<div style="width:100%;float:left;margin-top:30px;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Prototypes</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Io это прототипный язык, в нем упразднено понятие класса, которое есть
+	в CLOS. Т.е. имеется некий объект-прототип, а все остальные екземпляры создаются клонированием.
+	Это означает, что, во-первых любой объект хранит всю свою метаинформацию, а во-вторых,
+	может изменять свое структуру вплоть до объекта совершенно не имеюшего ничего общего
+	с прототипом.</P>
+
+	<p>Все экземпляры создаются в системе механизмом клонирования от первого созданого
+	объекта в ситеме, который как правило называют прототипом. Прототипы находятся
+	в общесистемной таблице прототипов.</P>
+</div>
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Objects</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Объект, главным образом состоит из слотов, которые содержат значения, другие объекты.
+	Все слоты имеют имена, строковые объекты-значения <b>Sequence</b>. Одними из главных слотов
+	объекта являются слоты "type" в котором хранится имя объекта, а также "protos", в
+	котором находится список его прототипов. У объекта может быть несколько прототипов,
+	это означает что Io поддерживает множественное наследование. Один из базовых прототипов
+	от которого унаследованы другие прототипы &mdash; <b>Object</b>.</p>
+</div>
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Sequence и Number</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Строки представляются объектами порожденными от прототипа <b>Sequence</b>, числа как целые, так и double
+	представляются
+	объектами <b>Number</b>. <b>Sequence</b> &mdash; это первый объект строка созданный в системе, а так же
+	любые константы в программе &mdash; все это <B>Sequence</B>. То же самое числа.</p>
+</div>
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Slots</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Рассмотрим примеры слотов. Начнем с "clone" и "type". Семантика слота "clone" говорит о том
+	что если вы обратитесь к нему за значением вы получите копию от объекта, содержащего 
+	этот слот. Слот "type" возвращает строковой объект-значение, имя типа объекта.
+	Естественно что это значение легко изменить.</p>
+
+	<P><b>clone</b> &mdash; Клонирование объекта:
+	<font size=3><pre>
+	Io> Object clone
+	==> Object+42
+	</pre></font>
+
+	<b>type</b> &mdash; Узнать тип объекта:
+	<font size=3><pre>
+	Io> anObjectInstance type
+	==> Sequence
+	Io> anObjectInstance
+	==> This is just a test string value holded in Sequence
+	Io> 123 type
+	==> Number
+	Io> 123 type type
+	==> Sequence
+	Io> "Hello World" type
+	==> Sequence
+	</pre></font>
+
+	<b>slotNames</b> &mdash; Узнать какие слоты есть у объекта:
+	<font size=3><pre>
+	Io> Number slotNames
+	exp pow * log10 / log2 round - pi log asNumber e +
+	==> 0
+	Io> Object slotNames
+	thisContext evalArg updateSlot ifNil method clone >= setSlot if init return
+	ifNilEval message print < slotNames while cloneWithoutInit block thisMessage
+	type <= != self setSlotWithType thisLocals println do == doMessage > getSlot
+	evalArgAnd ReturnSelf compare
+	==> Object+0</pre></font>
+
+</div>
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Cloning</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Мы уже знаем как клонировать объекты, давайте разберемся, что происходит
+	при клонировании и как связаны объекты со своими прототипами. Несмотря на то, что
+	у объекта может быть несколько прототипов, при клонировании
+	объекта создается объект с одним прототипом, т.е. в его слоте "protos" только что
+	клонированого объекта находится список с одим элементом, объектом от которого
+	его клонировали. При этом таблица слотов вновь клонированого пустая:</p>
+
+	<font size=3><pre>
+	Io> Number slotNames
+	exp pow * log10 / log2 round - pi log asNumber e +
+	==> 0
+	Io> Number clone slotNames
+	==> 0</pre></font>
+
+	<p>Естественно, что у прототипа список прототипов пуст (как у прототипа <b>Object</b> или
+	любого другого прототипа объекта который ни от кого не унаследован) или
+	содержит другие прототипы, от которых он унаследован. Это и отличает прототипы от остальных
+	объектов.</p>
+
+	<font size=3><pre>
+	Io> Number protos
+	==> list()
+	Io> Number clone protos
+	==> list(Number+0)</pre></font>
+
+</diV>    
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Lookup</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Это означает что при поиске слота, слоты ищутся сначала в текущем объекте, и,
+	если не находятся, ищутся среди прототипов этого объекта, вот почему находятся слоты у
+	клонируемых объектов:</p>
+
+	<font size=3><pre>
+	Io> 0 exp
+	==> 1
+	Io> Number
+	==> 0
+	Io> Number exp
+	==> 1
+	Io> Number clone exp
+	==> 1</pre></font>
+
+	<p>Как видно слоты находятся и у константы, и у прототипа, и у объекта
+	порожденного от прототипа.</p>
+</diV>    
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Activation</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Среди всех немногочисленных прототипов в системе есть два которые
+	представляют исполняемый код: <b>CFunction</b> и <b>Block</b>.
+	<b>CFunction</b> представляет собой делегат .NET, а <b>Block</b> &mdash;
+	представляет код написанный на самом Io. Это так называемые активируемые объекты, еще
+	говорят что они поддерживают активацию. При выполении сообщений, когда вы пишете:
+	</p>
+
+	<font size=3><pre>
+	Io> Number exp
+	==> 1
+	Io> 1 type
+	==> Number</pre></font>
+
+	<p>ищется слот с именем "exp" и если он поддерживает активацию то возвращается не само значение
+	слота, функция, а то что она возвращает, ее результат. Если выполняется сообщение которое
+	содержит имя слота, содержащего неактивируемый объект, например "type", то просто
+	возвращается значение этого слота (в данном случае строка "Number").</p>
+
+</diV>    
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Context</h3>
+</div>
+<div style="width:600px;float:left;">
+
+	<p>Рассмотрим, что произойдет когда вы просто напишете</p>
+
+	<font size=3><pre>
+	Io> slotNames
+	==> Lobby Protos</pre></font>
+
+	<p>У какого объекта будет искаться слот <b>slotNames</b> ? Слот при исполнении ищется
+	всегда в текущем контекcте, так написав в командной строке <b>slotNames</b> ищется
+	слот у объекта установленного контекcтом по-умолчания для интерпретатора командной строки,
+	однако если вы напишете:</p>
+
+	<font size=3><pre>
+	Io> Protos slotNames
+	==> Addons Core</pre></font>
+
+	<p>то будет происходить следующее. Сначала будет искаться слот "Protos" в текущем контексте,
+	он содержит объект унаследованый от <b>Object</b> у которого всего два
+	слота <b>Addons</b> и <b>Core</b>, именно этот объект, значение слота "Protos",
+	и будет установлен в качестве нового контекста исполнения. Слот "slotNames" будет
+	уже искаться начиная с нового контекста исполнения, и найдя в своем
+	прототипе <b>Object</b> слот "slotNames" выведется список слотов текущего
+	контекста исполнения.</p>
+
+</div>    
+</div>
+
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Message</h3>
+</div>
+<div style="width:600px;float:left;">
+
+	<p>Когда вы пишете:</p>
+
+	<font size=3><pre>
+	Io> Number log (2)
+	==> -Infinity</pre></font>
+
+	<p>Все это представляет собой цепочку объектов <b>Message</b>. Само сообщение
+	состоит из имени слота который будет
+	искаться в контекте выполнения сообщения, списка параметров, каждый из которых
+	представляет собой тоже сообщение, и указателю на следующее сообщение в цепочке сообщений.
+	При выполнении цепочки сообщении сообщения выполняются последовательно, изменяя
+	текущий контекст исполнения как было описано выше и при взятии значения слота (нового
+	контекста исполненя для цепочки) используется механизм активации описаный више.
+	</p>
+
+	<p>Рассмотрим цепочку сообщений</p>
+
+	<font size=3><pre>
+	Io> 0 exp * (1) / (2)
+	==> 0.5</pre></font>
+
+	<p>Последовательно выполняются три сообщения "exp", "*" и "/", у последних двух есть параметры: единица и двойка.
+	В процессе выполнении этой цепочки контекст исполнения меняется с 0 (объекта Number)
+	до результата выражения.</p>
+
+
+</div>    
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Grammar</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Мы подобрались к формальному описанию языка. Синтаксис языка очень выразительный:</p>
+
+	<div style="width:600px;margin-left:50px;margin-top:10px;margin-bottom:10px;float:left;">
+		<table width=500 bgcolor="gray" cellpadding="10"><tr><td><font color="white" size=3 face="Lucida Sans Unicode">
+		<code>program ::= message [ program ]<br>
+		message ::= symbol [ "(" [ message [ "," message ] ] ")" ]</code></font></td></table>
+	</div>
+
+	<p>Это все. На этом формальное описание языка можна закончить.</p>
+</div>    
+</div>
+
+<div style="width:100%;float:left;">
+<div style="width:196px;float:left;margin-right:6px;">
+	<h3 align=right style="margin-top:3px">Arguments</h3>
+</div>
+<div style="width:600px;float:left;">
+	<p>Передача аргуметов в Io просиходит не так как в большинстве языков. Обычно перед
+	тем как передать аргументы в функции они сначала вычисляются, в Io каждый аргумент
+	передаются в виде сообщения, которое в общем случае представляет
+	собой цепочку сообщений, которые выполняются уже внутри функции,
+	которая может получит переданый параметр в виде цепочки сообщений по
+	порядковому номеру. Это так называемое
+	lazy argument evaluation.</p>
+	
+	<br><br><br>
+</div>    
+</div>
+
+<div style="width:800px;margin-left:200px;text-align:left;font-size:10pt;">
+    <div style="width:596px;float:left;">
+        Last Modification: Apr 17, 2009
+    </div>
+</div>
+
+<div style="width:800px;margin-left:200px;text-align:center;margin-bottom:50px;">
+    <div style="width:596px;height:100px;float:left;">
+    <hr size=1>
+    <a href="../../privacy.htm">Privacy Policy</a> | <a href="../../feedback.htm">Feedback</a><br>
+    Copyright &copy; 2005&ndash;2011 <a href="../../index.htm">
+    <font color="#0033cc">syn</font><font color="#ff3333">rc</font> Research Center, Inc.</a>
+    </div>
+</div>
+
+</body></html>

@@ -1,0 +1,126 @@
+<SteveDekorte2> I didn't see the last few messages - can you repeat them if they were meant for me? :-)
+<masique> steve, I'm talking about maximum number of coros
+<masique> on my windows box Io falls down to system without error message on 888
+<SteveDekorte2> hm, they should only be limited by memory usage
+<masique> thats because Win32Fibers I know
+<masique> BUT
+<SteveDekorte2> but IIRC, the Windows version may use windows fibers
+<SteveDekorte2> right
+<masique> I create C# Fibers with IEnumerator, and this number is 200 000
+<masique> and also I was asking about the muximum number of coros observed on any plafrom
+<masique> you as author of libcoroutine can answer me :)
+<SteveDekorte2> you could get around that with a custom coro implementation - you just need to know the location of the stack and instruction pointers in the setjmp struct
+<masique> I have no access to stack on C# :)
+<SteveDekorte2> oh, are you the one implementing Io on C#?
+<masique> yeas that guy is me :)
+<SteveDekorte2> cool :-)
+<SteveDekorte2> well with a setjmp/longjmp implementation of coros, it should only be limited by memory usage
+<masique> I dropped Win32 Fiber and C# yield return operator (becase impossible to call C# yield in Io code outside IEumerator coro)
+<masique> Do you want to say to me that libcoroutine can handle 200 000 coros on any 32-bit plafrom ?
+<jer> masique, don't you have access to it in unsafe mode?
+<masique> nither
+<masique> I dropped Win32 Fiber and C# yield return operator (becase impossible to call C# yield in Io code outside IEumerator coro)
+<masique> I now I'm thinking to save/restore context indirectly of Io Code :)
+<masique> I have nice VM, why I should find any other ways to switching context ? :)
+<SteveDekorte2> So your Io call stack is distinct from C#s?
+<SteveDekorte2> The Io C implementation uses the C stack directly
+<masique> what do you mean about Io stack ? I can save current Io context and position in performing message chain
+<masique> and thus save IP of IO
+<SteveDekorte2> I mean Io's C implementation is "stackfull" as opposed to "stackless"
+<SteveDekorte2> this is why a coro can't be serialized and pushed across a network and restarted elsewhere
+<masique> yeas because its not holds its stack in Io Objects
+<masique> I want to make this
+<masique> in pure Io coroutine implementation
+<masique> I need to do some changes to perform logic and VM itself only
+<masique> what do you mean by stacfull as I see I can serialize state of Io machine Its possible
+<masique> what I need is just to save current context and position in message chain inside the Block
+<masique> and track calls in coroutine stack
+<masique> what do you thinking about that ?
+* OpenSpace has quit ("outer vastness!")
+<SteveDekorte2> hm, I'm not sure I follow you - something might be getting lost in the Russian to English translation :-)
+<SteveDekorte2> if you can serialize a stack and run it on a different machine, then it's probably what is considered "stackless"
+<SteveDekorte2> for a description of what stackless means, see: http://en.wikipedia.org/wiki/Stackless_Python
+<masique> just forget about libcoroutine and imaginge how to remeber position and context of Io code that interpets
+<masique> where is here C stack ?
+<masique> we need to remember the current context and position in message chaing in performing Block code
+<masique> right ?
+<SteveDekorte2> right, and the call stack frames
+<masique> if we remember that we can restart performing of Block later, right ?
+<SteveDekorte2> which is just the list of locals objects
+<SteveDekorte2> right
+<masique> yes
+<masique> so why pure Io Coroutine is nonexistent ? :)
+<SteveDekorte2> because it makes it hard to integrate with C
+<SteveDekorte2> take a look at Lua's C binding system (Lua is stackless)
+<masique> why do you think you need deal with C ?
+<masique> you interpret code in your VM
+<masique> you don't need to save stack inside CFunction :)
+<masique> just between Io performing messages
+<SteveDekorte2> depends, there are a lot of C libs that use callbacks
+<SteveDekorte2> most codec libs, media processing, networking etc
+<masique> yes that is the problem
+<masique> but academicaly in pure Io environment its possible
+<SteveDekorte2> you could just raise an exception when attempting to serialize during a callback
+<SteveDekorte2> also, a true VM is more complex to implement
+<masique> btw
+<SteveDekorte2> the nice thing about the current system is that every CFunction is like adding an opcode to the VM
+<masique> I started to write a draft about Compiling Io code
+<masique> into calls to VM primitives
+<masique> a have small opcodes
+<masique> which transforms to dealing with C# IoObjects
+<masique> the same way #Smalltalk implemented
+<masique> Io -> IoBytecode -> CLR bytecode -> native code
+<SteveDekorte2> I'm going to be implementing IoLite in Lua during my vacation (starting tomorrow) - as it's built on Lua, it will be stackless
+<SteveDekorte2> and compilable via LuaJIT
+<SteveDekorte2> I was debating doing it in JavaScript after seeing the V8 performance specs
+<masique> but what about external LuaLIb which will have callbacks ? :) how about stackless ?
+<SteveDekorte2> right, you can serialize during callbacks
+<SteveDekorte2> *can't
+<SteveDekorte2> you can't in any language :-)
+<SteveDekorte2> including Smalltalk :-)
+<masique> so any languagre is stackfull right ? :)
+<SteveDekorte2> when it's in a callback from C, yup :-)
+<SteveDekorte2> the Smalltalk solution is to try to write everything in Smalltalk, but it's a loosing proposition
+* flojistik_ is now known as Phlogistique
+<SteveDekorte2> it's impossible to keep up with all the codecs, etc. and there are always things like OS callbacks
+<masique> btw i have access from IoNET to all CLR Objects and Classes and even can write small Windows Forms Applications
+<masique> I wrote IoCLRObject and IoCLRFunction with approriative lookups through Reflection
+<masique> in Run time I can perform and call Io Objects from C#
+<masique> but I want to compile and make DLLs
+<SteveDekorte2> very cool
+<masique> compiling lazy arg evals seems Infernal :)
+<masique> I have used to writing PL/1 native compiler for .NET CLR, but Io with lazy arg evals is something different
+<SteveDekorte2> right, with IoLite, I am going to just use blocks instead of lazy args (that's where the "Lite" comes from)
+<masique> ha, but this is the power of Io
+<SteveDekorte2> the big question is Lua's block locals lookups
+<masique> DSL writing then will be much tricky
+<SteveDekorte2> masique: I agree that lazy args are better, but the world also needs a scripting language with less semantic and syntactic weight than the current mainstream languages
+<masique> i talked to my LISP collegues and thay called Io - syntaxic forth :)
+<SteveDekorte2> Ruby and Python are just fat, ugly cousins of Smalltalk
+<SteveDekorte2> heh :-)
+<masique> i wont drop lazy arg eval in my implementation
+<SteveDekorte2> cool
+<masique> will keep trying to write complilation with it
+<SteveDekorte2> it's a tough problem
+<SteveDekorte2> personally, I'd prefer to see hardware with hashtable ops instead of fancy compilers to reduce hash lookups to list indexes
+<SteveDekorte2> or associative memory would solve the problem too - single cycle hash lookups
+<SteveDekorte2> with no collisions
+<masique> btw i included your prev opShuffleIo version im my release and in small expression it creates up to 18 000 Io Objects %)
+<masique> when parsing
+<masique> I'm thinking to store and execution Io code in raw Io without shuffle, doing shuffle only in interpreter 
+<SteveDekorte2> another thing I've been considering doing with IoLite is moving to Smalltalk style operator precedence 
+<masique> when creating Blocks I want create its alredy shuffled
+<masique> year 15 priorities seems to much for Io :)
+<masique> anyway thanks for a good toy 
+<masique> I played with it for my vacation and had a lot of fun
+<masique> I used in my work dotLISP interpreter for scripting .NET application, and now dotLISP have a brother - IoNET :)
+<SteveDekorte2> :-)
+<SteveDekorte2> I'm interested in taking a look at your implementation when I get a chance
+<SteveDekorte2> can it run on OSX?
+<masique> yes in Mono
+<masique> you can read the code - https://synrc.com/repository/io/IoLanguage/src/IoVM
+<masique> the size of my IoVM.dll is 70KB
+<SteveDekorte2> it must be nice to not have to implement garbage collection
+<masique> definitly right
+<SteveDekorte2> or all the basic data structures I had to in C
+<SteveDekorte2> or coroutines :-)
