@@ -1,91 +1,74 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
 <head>
-<title>Synrc Io Language CLR</title>
-
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="author" content="Synrc Research Center">
-<meta name="copyright" content="c 2006 Synrc Research Center">
-<meta name="keywords" content="business process,investigation,expertise,prototyping,software,software engineering,research center" lang="en">
-<meta name="date" content="2006-11-29T05:00:00+02:00">
-<link href="../../synrc.css" type="text/css" rel="stylesheet">
-
+<link href="http://synrc.com/synrc.css" type="text/css" rel="stylesheet">
 </head>
-<body alink="midnightblue" bgcolor="white" link="midnightblue" text="darkslategray" vlink="midnightblue" 
-    topmargin=10 leftmargin=1 rightmargin=0 bottommargin=10 marginwidth=10 marginheight=10>
+<body>
+<p>
 
-<!-- Logo -->
-<div style="width:600px;margin-left:200px;height:78px;margin-top:20px;">
-    <div style="float:left; font-size: 21pt; font-family: Palatino Linotype;margin-top: 42px; ">
-        <b><font color="#0033cc">syn</font><font color="#ff3333">rc</font> research center</b>
+<div class="nonselectedwrapper">
+<div class="verywidecol">
+
+    <div style="height:78px;margin-top:20px;">
+        <div class="logo_font" style="float:left; font-size: 21pt;margin-top: 42px; ">
+            <b><font color="#0033cc">syn</font><font color="#ff0000">rc</font> research center</b>
+        </div>
+        <div style="float:right;margin-top: 4px; ">
+            <a href="http://synrc.com/index.htm"><img src="http://synrc.com/images/synrc.png" border="0"></a>
+        </div>
     </div>
-    <div style="float:right;margin-top: 4px; ">
-        <a href="../../index.htm"><img src="../../images/synrc.png" border="0"></a>
-    </div>
+
+</div>
 </div>
 
-<hr size="1" width=100%>
+<div class="clear"></div>
 
-<!-- Menu -->
-<div style="width:600px;margin-left:200px;">
-    <table bgcolor="white" cellpadding="5" width="100%" >
+<hr size="1"/>
+
+<div class="nonselectedwrapper">
+<div class="verywidecol">
+
+    <table bgcolor="white" cellpadding="5" cellspacing=7 width=100%>
     <tbody bgcolor="#eeeeee"><tr height="50" align="center" valign="center">
-        <td width="12%"> <div class="menu"><a href="../../index.htm">Sync</a></div> </td>
-        <td width="12%"> <div class="menu"><a href="../../research.htm">Research</a></div> </td>
-        <td width="12%"> <div class="menu"><a href="../../labs.htm">Labs</a></div> </td>
-        <td width="12%"> <div class="menu"><a href="../../feedback.htm">Feedback</a></div> </td>
-        <td width="12%"> </td>
-        <td width="12%"> </td>
-        <td background="../../images/dots1.jpg" width="12%"> </td>
-        <td background="../../images/dots2.jpg" width="12%"> </td>
+        <td width=20%> <div class="menu"><a href="http://synrc.com/index.htm">Sync</a></div> </td>
+        <td width=20%> <div class="menu"><a href="http://synrc.com/research.htm">Research</a></div> </td>
+        <td width=20%> <div class="menu"><a href="http://synrc.com/labs.htm">Labs</a></div> </td>
+        <td width=20%> <div class="menu"><a href="http://synrc.com/feedback.htm">Feedback</a></div> </td>
+        <td width=20% background="http://synrc.com/images/dots2.jpg"> </td>
+        <!--td width="" background="http://synrc.com/images/dots2.jpg"> </td-->
     </tr></tbody></table>
+
+</div>
 </div>
 
-<!-- Current Path and Language Select -->
-<div style="width:600px;margin-left:200px;height:16px;font-size:10pt;">
-    <div style="float:right;" align=right>
-        Compilers Lab
+<div class="clear" style="margin-bottom:20px;"></div>
+</p>
+
+<div class="nonselectedwrapper">
+<div class="article">
+<div class="smallcol">
+
+    <div class="block">
+	<p><img src="../images/Io.png" border=0></p>
+	<p>Io Language</p>
     </div>
-</div>
-
-<!-- Article Name -->
-<div style="width:100%;font-weight: bold; font-family: Lucida Sans Unicode;margin-top:20px;">
-	<p>
-	<div style="width:390px;float:left;margin-left:400px;font-variant:small-caps;">
-		<font color="#ff3333" size="6"><b>Язык программирования Io</b></font>
-	</div>
-	<div style="width:290px;float:left;margin-left:500px;">
-		<font size=4><b>Часть 1. Примитивы</b></font>
-	</div>
-	<p>
-</div>
 
 </div>
+<div class="articlecol">
 
-<div style="width:100%;float:left;margin-top:30px;">
-<div style="width:200px;margin-left:200px;float:left;">
-	<img src="../images/Io.png" border=0>
-	<p><font size=2>Io Language</font></p>
-</div>
-<div style="width:400px;float:left;">
-	<p align=justify><font size=2>Здесь обсуждаются прототипы встроенные в саму
+	<h1>Язык программирования Io</h1>
+
+	<h2>Часть 1. Примитивы</h2>
+
+	<p>Здесь обсуждаются прототипы встроенные в саму
 	виртуальную машину, которые составляют ядро языка и описывают полностью язык.
 	Эти объекты реализованы на C#, мы опишем структуру этих объектов.
-	Здесь не будет дано описание их слотов. Позде мы отдельно рассмотрим каждый объект.</font></p>
-</div>
-<div style="width:200px;margin-left:20px;float:left;">
+	Здесь не будет дано описание их слотов. Позде мы отдельно рассмотрим каждый объект.</p>
 
-   	<p><a href="overview.htm">Введение</a></P>
-	<p><a href="primitives.htm">Часть 1. Примитивы</a></P>
-	<p><a href="object.htm">Часть 2. Object</a></P>
+	<h3>Taxonomy</h3>
 
-</div>
-</div>
-
-<div style="width:100%;float:left;margin-top:30px;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Taxonomy</h3>
-</div>
-<div style="width:600px;float:left;">
 	<p>Все в Io &mdash; это обекты в терминилогии самого Io. Эти объекты представлены
 	в реализации, объектами класса IoObject. Хотя, все из чего состоит объект &mdash;
 	это слоты и их значения, тем не менее в реализации некоторые поля объекта, которые
@@ -93,14 +76,8 @@
 	частых операций в Io &mdash; это клонировние, в котором заполняются эти поля,
 	поэтому целесообразно оптимизировать это в самой виртуальной машине. А что бы все
 	эти поля сделать видимыми можно написать активируемые слоты используя CLR рефлекшин.</P>
-</div>
-</div>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Object</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>Object</h3>
 
 	<p>Рассмотрим поближе из чего состоит объект Io, и как работает
 	объектная модель. Для єтого заглянем в реализацию базового
@@ -150,14 +127,8 @@
 	для каждого примитива присваиваются новые, либо как виртуальные функции
 	которые при необходимости переопределяются. Вот основные из них:</p>
 
-</div>
-</div>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">proto</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>proto</h3>
 
 	<p>Функция которая создает самый первый примитив. Он отличается тем,
 	что в его поле <b>protos</b> находятся только другие примитивы, и у него есть
@@ -166,41 +137,21 @@
 	примитив в виртуальной машине, примитивы регистриют только один раз и идентифицируются
 	по полю <b>name</b>, которое описано выше.</p>
 
-</div>
-</div>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">clone</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>clone</h3>
 
 	<p>Функция, которая только клонирует объект и
 	больше ничего не делает. Эта функция, обычно копирует поля прототипа в только что
 	созданный клон объекта с пустым набором слотов, и с одним элементом в
 	списке <b>protos</b> прототипом, зарегистрированным в системе.</p>
 
-</div>
-</div>
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">activate</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>activate</h3>
 
 	<p>Эта функция присутсвует только у активируемых
 	объектов и вызывается они при их активации, когда необходипо получить не сам
 	активируемый объект, а то что возвращает возвращает если его вызвать (активировать).</p>
 
-</div>
-</div>
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">perform</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>perform</h3>
 
 	<p>Это ключевая функция не только <b>IoObject</b>, но и Io. Она осуществляет
 	единичную обработку сообщения в цепочке. Она ищет слот в текущем контексте,
@@ -230,18 +181,10 @@
 	    }</code></font></td></table>
 	</div>
 
-</div>
-</div>
 
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Sequence</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>Sequence</h3>
 
 	<p>Строки IoSeq наследуются от объекта IoObject и добавляют только поле:</p>
-
 
 	<div style="width:400%;float:left;margin-left:50px;margin-top:20px;margin-bottom:20px;">
 	<table bgcolor=silver cellpadding=10 cellspacing=10>
@@ -258,14 +201,7 @@
 	<p>Естественно что все объекты-примитивы виртуальной машины унаследованые от
 	IoObject определяют свои <b>name</b>, <b>clone</b>, <b>proto</b>.</p>
 
-</div>
-</div>
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Number</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>Number</h3>
 
 	<p>IoNumber используется для хранения чисел. Ограниченой точности.</p>
 
@@ -280,14 +216,7 @@
 	именно байт нужно для хранения числа. Очевидно что этот объект используется
 	для хранения чисел. </p>
 
-</div>
-</div>
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">List и Map</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>List и Map</h3>
 
 	<div style="width:400%;float:left;margin-left:50px;margin-top:20px;margin-bottom:20px;">
 
@@ -312,14 +241,8 @@
 	<p><b>List</b> и <b>Map</b> не примечательны ничем, кроме того что содержат:
 	один список <b>list</b>, второй хештаблицу <b>map</b>. <b>Map</b> в качестве ключей и значений может
 	принимать любой объект Io.</p>
-</diV>    
-</div>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">CFunction</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>CFunction</h3>
 
 	<p>IoCFunction используется для хранения делегатов .NET. Все активируемые слоты
 	примитивов виртуальной машины состоят из объектов IoCFunction.</p>
@@ -334,23 +257,9 @@
 	<p>Естественно, как активируемый объект, <b>CFunction</b> определяет свою
 	функцию активации <b>activate</b>, которая просто вызывает .NET делегат <b>func</b></p>
 
-</div>    
-</div>
+	<h3>Message</h3>
 
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Message</h3>
-</div>
-<div style="width:600px;float:left;">
-</diV>    
-</div>
-
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Block</h3>
-</div>
-<div style="width:600px;float:left;">
+	<h3>Block</h3>
 
 	<div style="width:400%;float:left;margin-left:10px;">
 	<blockquote><table bgcolor=silver cellpadding=10 cellspacing=10>
@@ -366,40 +275,56 @@
 	</table></blockquote>
 	</div>
 
-</div>    
+	<h3>Call</h3>
+
+	<h3>Environment</h3>
+
+</div>
+<div class="toc last">
+
+	<h2>TOC</h2>
+
+	<a href="overview.htm">Введение</a><br>
+	<a href="primitives.htm">Часть 1. Примитивы</a><br>
+	<a href="object.htm">Часть 2. Object</a><br>
+
+</div>
+</div>
 </div>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Call</h3>
-</div>
-<div style="width:600px;float:left;">
-</div>    
-</div>
+<div class="clear"></div>
+<p>
 
-<div style="width:100%;float:left;">
-<div style="width:196px;float:left;margin-right:6px;">
-	<h3 align=right style="margin-top:3px">Environment</h3>
-</div>
-<div style="width:600px;float:left;">
+<div class="nonselectedwrapper">
+<div class="verywidecol">
 
-	<br><br><br>
-</div>    
-</div>
-
-<div style="width:800px;margin-left:200px;text-align:left;font-size:10pt;">
-    <div style="width:596px;float:left;">
-        Last Modification: Apr 17, 2009
+    <div style="width:100%;height:100px;float:left;" align=center>
+    	<hr size=1>
+        <span class="logo_font" style="font-size:14pt;">
+            <b><font color="#0033cc">syn</font><font color="#ff0000">rc</font></b></span> uses H<FONT SIZE=2><sup>E</sup></FONT>V<FONT SIZE=2><sup>E</sup></FONT>A<br>
+    	<a href="http://synrc.com/privacy.htm">Privacy Policy</a> | <a href="http://synrc.com/feedback.htm">Feedback</a> | <a href="http://synrc.com/brandbook.htm">Brandbook</a><br>
+    	Copyright &copy; 2005&ndash;2012 <a href="http://synrc.com/index.htm"> Synrc Research Center</a>
     </div>
+
+</div>
 </div>
 
-<div style="width:800px;margin-left:200px;text-align:center;margin-bottom:50px;">
-    <div style="width:596px;height:100px;float:left;">
-    <hr size=1>
-    <a href="http://synrc.com/privacy.htm">Privacy Policy</a> | <a href="http://synrc.com/feedback.htm">Feedback</a><br>
-    Copyright &copy; 2005&ndash;2011 <a href="http://synrc.com/index.htm">
-    <font color="#0033cc">syn</font><font color="#ff3333">rc</font> Research Center, Inc.</a>
-    </div>
-</div>
+<div class="clear"></div>
 
-</body></html>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-29227518-1']);
+      _gaq.push(['_trackPageview']);
+      
+        (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                      })();
+                      
+                      </script>
+                      </p>
+
+</body>
+</html>
