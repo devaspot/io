@@ -1,31 +1,13 @@
-\documentclass[11pt]{article}
-\usepackage{ifthen}
-\usepackage{graphicx}
-\usepackage{cite}
-\usepackage{hevea}
-\input{synrc.hva}
+\input{../../synrc.hva}
 %HEVEA \loadcssfile{../../synrc.css}
-
+\renewcommand{\images}{http://synrc.com/research/io/images}
 \begin{document}
-%HEVEA \rawhtmlinput{research/io/fork-me.htx}
-%HEVEA \rawhtmlinput{templates/head-hevea.htx}
-
-
 \title{Io Language CLR}
 \author{Maxim Sokhatsky}
 
 %HEVEA \begin{divstyle}{nonselectedwrapper}
 %HEVEA \begin{divstyle}{article}
-%HEVEA \begin{divstyle}{smallcol}
-%HEVEA \begin{divstyle}{block}
-\paragraph{}
-\includeimage{images/Io.png}
-\paragraph{}
-\begin{displaymath}
-\int_1^\infty{\frac{\ln{x}+5}{\sin{x}}}\,dx
-\end{displaymath}
-%HEVEA \end{divstyle}
-%HEVEA \end{divstyle}
+\input{toc}
 %HEVEA \begin{divstyle}{articlecol}
 \section*{Io Language CLR}
 
@@ -35,17 +17,11 @@ languages. Inspired by Smalltalk its simplified syntax free from
 syntax trash. We implemented Io Language Virtual Machine and Read
 eval Print Loop for .NET CLR.
 
+\begin{displaymath}
+\frac{1}{\pi} = \frac{2\sqrt{2}}{9801}\sum^{\infty}_{n=0}\frac{(4n)!(1103+26390}{(n!)^{4}396^{4n}}
+\end{displaymath}
+
 Io Manual: \footahref{http://synrc.com/research/io/doc/overview.htm}{http://synrc.com/research/io/doc/overview.htm}
-
-\subsection*{Credits}
-
-Team in alphabetical order:
-
-%HEVEA \begin{quote}
-Oleg Andreev \@br
-Semka Novikov \@br
-Maxim Sokhatsky                                                                                                   
-%HEVEA \end{quote}
 
 \subsection*{References}
 
@@ -54,13 +30,9 @@ Io's author --- \footahref{http://dekorte.com/}{Steve Dekorte}. Also you may not
 \footahref{news://news.gmane.org/gmane.comp.lang.io}{comp.lang.io}
 newsgroup available at gmane news archive.
 
+%HEVEA \rawhtmlinput{templates/disqus.htx}
 %HEVEA \end{divstyle}
 %HEVEA \end{divstyle}
 %HEVEA \end{divstyle}
 %HEVEA \begin{divstyle}{clear}{~}\end{divstyle}
-
-%HEVEA \footerfalse  
-%HEVEA \rawhtmlinput{templates/foot.htx}
-
 \end{document}
-

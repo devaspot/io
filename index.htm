@@ -5,7 +5,7 @@
 <TITLE>Io Language CLR
 </TITLE>
 
-<META http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <META name="GENERATOR" content="hevea 1.10">
 <STYLE type="text/css">
 .li-itemize{margin:1ex 0ex;}
@@ -43,104 +43,152 @@ TD P{margin:0px;}
 .marginparright{float:right; margin-left:1ex; margin-right:0ex;}
 .theorem{text-align:left;margin:1ex auto 1ex 0ex;}
 .part{margin:2ex auto;text-align:center}
+.lstlisting{font-family:monospace;white-space:pre;margin-right:auto;margin-left:0pt;text-align:left}
 </STYLE>
 <LINK REL=STYLESHEET type="text/css" HREF="../../synrc.css">
-</HEAD>
+
+  <meta name="Author" content="Loc">
+  <meta http-equiv="expires" content="Tue, 01 Jan 2020 1:00:00 GMT" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=IE10,chrome=1" />
+  </HEAD>
 <BODY >
-<!--HEVEA command line is: /usr/bin/hevea research/io/index.tex -o research/io/index.htm -->
-<!--CUT DEF section 1 --><P>
-<a class="fork-me" href="http://github.com/synrc/research-io">
-<img src="http://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" border=0 alt="Fork me on GitHub"></a>
+<!--HEVEA command line is: /usr/bin/hevea index.tex -o index.htm -->
+<!--HTMLHEAD-->
 
-<div class="nonselectedwrapper">
+<div class="nonselectedwrapper white" style="padding: 30 10 0 0;margin: 0 0 -12 0;">
 <div class="verywidecol">
-
-    <div style="height:78px;margin-top:20px;">
-        <div class="logo_font" style="float:left; font-size: 21pt;margin-top: 42px; ">
-            <b><font color="#0033cc">syn</font><font color="#ff0000">rc</font> research center</b>
-        </div>
-        <div style="float:right;margin-top: 4px; ">
-            <a href="http://synrc.com/index.htm"><img src="http://synrc.com/images/synrc.png" border="0"></a>
-        </div>
-    </div>
-
+<nobr>
+    <a href="http://synrc.com/index.htm">
+    <img style="float:left;margin-right:10px;" src="http://synrc.com/images/synrc.png" border="0"></a>
+</nobr>
 </div>
 </div>
 
 <div class="clear"></div>
 
-<hr size="1"/>
+<hr size="1">
 
-<div class="nonselectedwrapper">
+<div class="nonselectedwrapper" style="margin-top:10px;margin-bottom:10px;background-color: #eeeeee;">
 <div class="verywidecol">
 
-    <table bgcolor="white" cellpadding="5" cellspacing=7 width=100%>
+    <table bgcolor="white" cellpadding=0 cellspacing=0 width=100%>
     <tbody bgcolor="#eeeeee"><tr height="50" align="center" valign="center">
-        <td width=20%> <div class="menu"><a href="http://synrc.com/index.htm">Sync</a></div> </td>
-        <td width=20%> <div class="menu"><a href="http://synrc.com/research.htm">Research</a></div> </td>
-        <td width=20%> <div class="menu"><a href="http://synrc.com/labs.htm">Labs</a></div> </td>
-        <td width=20%> <div class="menu"><a href="http://synrc.com/feedback.htm">Feedback</a></div> </td>
+        <script language="JavaScript">
+        <!--
+        var args = (window.location).toString().split('/');
+        var page_name = args[args.length-1];
+
+        if(page_name == 'index.htm' || page_name ==''){   // Home
+            document.write('<td width=20%> <div class="menu">Home</div> </td>');
+        }else{
+            document.write('<td width=20%> <div class="menu"><a href="http://synrc.com/index.htm">Home</a></div> </td>');
+        }
+
+        if(page_name == 'research.htm'){
+            document.write('<td width=20%> <div class="menu">Showcase</div> </td>');
+        }else{
+            document.write('<td width=20%> <div class="menu"><a href="http://synrc.com/research.htm">Showcase</a></div> </td>');
+        }
+
+        if(page_name == 'github.htm'){
+            document.write('<td width=20%> <div class="menu">Apps</div> </td>');
+        }else{
+            document.write('<td width=20%> <div class="menu"><a href="http://synrc.com/github.htm">Apps</a></div> </td>');
+        }
+
+        if(page_name == 'feedback.htm'){
+            document.write('<td width=20%> <div class="menu">Contacts</div> </td>');
+        }else{
+            document.write('<td width=20%> <div class="menu"><a href="http://synrc.com/feedback.htm">Contacts</a></div> </td>');
+        }
+
+        // -->
+        </script>
         <td width=20% background="http://synrc.com/images/dots2.jpg"> </td>
-        <!--td width="" background="http://synrc.com/images/dots2.jpg"> </td-->
     </tr></tbody></table>
 
 </div>
 </div>
 
-<div class="clear" style="margin-bottom:20px;"></div>
-</P><DIV CLASS="nonselectedwrapper">
+<!--ENDHTML-->
+<!--CUT DEF section 1 --><DIV CLASS="nonselectedwrapper">
 <DIV CLASS="article">
-<DIV CLASS="smallcol">
-<DIV CLASS="block">
-<!--TOC paragraph -->
+<DIV CLASS="toc">
+<!--TOC section TOC-->
+<H2 CLASS="section"><!--SEC ANCHOR -->TOC</H2><!--SEC END --><!--TOC paragraph -->
 <H5 CLASS="paragraph"><!--SEC ANCHOR --></H5><!--SEC END --><P>
+<A HREF="doc/overview.htm">Overview</A> <BR>
 
+<A HREF="doc/primitives.htm">1. Primitives</A> <BR>
 
-<IMG SRC="images/Io.png">
+<A HREF="doc/object.htm">2. Object</A> <BR>
 
+</P></DIV>
 
-</P><!--TOC paragraph -->
-<H5 CLASS="paragraph"><!--SEC ANCHOR --></H5><!--SEC END --><TABLE CLASS="display dcenter"><TR VALIGN="middle"><TD CLASS="dcell"><FONT SIZE=6>&#X222B;</FONT></TD><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="left">&#X221E;</TD></TR>
-<TR><TD CLASS="dcell" ALIGN="left"><BR>
-<BR>
-</TD></TR>
-<TR><TD CLASS="dcell" ALIGN="left">1</TD></TR>
-</TABLE></TD><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="center">ln<I>x</I>+5</TD></TR>
-<TR><TD CLASS="hbar"></TD></TR>
-<TR><TD CLASS="dcell" ALIGN="center">sin<I>x</I></TD></TR>
-</TABLE></TD><TD CLASS="dcell">&#XA0;<I>dx</I>
-</TD></TR>
-</TABLE></DIV>
-</DIV>
 <DIV CLASS="articlecol">
 <!--TOC section Io Language CLR-->
 <H2 CLASS="section"><!--SEC ANCHOR -->Io Language CLR</H2><!--SEC END --><P>As some of us are fans of Smalltalk and LISP, we cannot pass the 
-beautiful syntaxic forth start-up. Io &#X2014; one of simplest but very powerful
+beautiful syntaxic forth start-up. Io — one of simplest but very powerful
 languages. Inspired by Smalltalk its simplified syntax free from
 syntax trash. We implemented Io Language Virtual Machine and Read
-eval Print Loop for .NET CLR.</P><P>Io Manual: <A HREF="http://synrc.com/research/io/doc/overview.htm">http://synrc.com/research/io/doc/overview.htm</A></P><!--TOC subsection Credits-->
-<H3 CLASS="subsection"><!--SEC ANCHOR -->Credits</H3><!--SEC END --><P>Team in alphabetical order:</P><BLOCKQUOTE><EM>
-Oleg Andreev <BR>
-
-Semka Novikov <BR>
-
-Maxim Sokhatsky 
-</EM></BLOCKQUOTE><!--TOC subsection References-->
+eval Print Loop for .NET CLR.</P><TABLE CLASS="display dcenter"><TR VALIGN="middle"><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="center">1</TD></TR>
+<TR><TD CLASS="hbar"></TD></TR>
+<TR><TD CLASS="dcell" ALIGN="center">π</TD></TR>
+</TABLE></TD><TD CLASS="dcell"> = </TD><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="center"><TABLE CLASS="display"><TR VALIGN="middle"><TD CLASS="dcell">2</TD><TD CLASS="dcell"><FONT SIZE=5>√</FONT></TD><TD CLASS="dcell"><TABLE border=0 cellspacing=1 cellpadding=0><TR><TD CLASS="hbar"></TD></TR>
+<TR><TD ALIGN=center NOWRAP>2</TD></TR>
+</TABLE></TD></TR>
+</TABLE></TD></TR>
+<TR><TD CLASS="hbar"></TD></TR>
+<TR><TD CLASS="dcell" ALIGN="center">9801</TD></TR>
+</TABLE></TD><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="center">∞</TD></TR>
+<TR><TD CLASS="dcell" ALIGN="center"><FONT SIZE=6>∑</FONT></TD></TR>
+<TR><TD CLASS="dcell" ALIGN="center"><I>n</I>=0</TD></TR>
+</TABLE></TD><TD CLASS="dcell"><TABLE CLASS="display"><TR><TD CLASS="dcell" ALIGN="center">(4<I>n</I>)!(1103+26390</TD></TR>
+<TR><TD CLASS="hbar"></TD></TR>
+<TR><TD CLASS="dcell" ALIGN="center">(<I>n</I>!)<SUP>4</SUP>396<SUP>4<I>n</I></SUP></TD></TR>
+</TABLE></TD></TR>
+</TABLE><P>Io Manual: <A HREF="http://synrc.com/research/io/doc/overview.htm">http://synrc.com/research/io/doc/overview.htm</A></P><!--TOC subsection References-->
 <H3 CLASS="subsection"><!--SEC ANCHOR -->References</H3><!--SEC END --><P>Please checkout also the original <A HREF="http://iolanguage.com/">Io Language</A> sources maintained by
-Io&#X2019;s author &#X2014; <A HREF="http://dekorte.com/">Steve Dekorte</A>. Also you may notice 
+Io’s author — <A HREF="http://dekorte.com/">Steve Dekorte</A>. Also you may notice 
 <A HREF="news://news.gmane.org/gmane.comp.lang.io">comp.lang.io</A>
-newsgroup available at gmane news archive.</P></DIV>
+newsgroup available at gmane news archive.</P><P>
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'synrc'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    
+
+</P></DIV>
 </DIV>
-</DIV><DIV CLASS="clear">&#XA0;</DIV><P>
+</DIV><DIV CLASS="clear"> </DIV><!--CUT END -->
+<!--HTMLFOOT-->
+
 <div class="nonselectedwrapper">
 <div class="verywidecol">
 
-    <div style="width:100%;height:100px;float:left;" align=center>
+    <div style="width:100%;height:300px;float:left;font-size:14pt;" align=center>
     	<hr size=1>
         <span class="logo_font" style="font-size:14pt;">
-            <b><font color="#0033cc">syn</font><font color="#ff0000">rc</font></b></span> uses H<FONT SIZE=2><sup>E</sup></FONT>V<FONT SIZE=2><sup>E</sup></FONT>A<br>
-    	<a href="http://synrc.com/privacy.htm">Privacy Policy</a> | <a href="http://synrc.com/feedback.htm">Feedback</a> | <a href="http://synrc.com/brandbook.htm">Brandbook</a><br>
-    	Copyright &copy; 2005&ndash;2012 <a href="http://synrc.com/index.htm"> Synrc Research Center</a>
+            <b><font color="#0033cc">syn</font><font color="#ff0000">rc</font></b></span> uses H<FONT SIZE=1><sup>E</sup></FONT>V<FONT SIZE=1><sup>E</sup></FONT>A<br>
+        <a href="http://build.synrc.com/">Сontinuous Integration</a> |
+        <a href="http://synrc.com/news">Events</a> |
+        <a href="http://voxoz.com">Erlang PaaS</a> |
+        <a href="http://synrc.com/music">Music</a><br>
+    	<a href="http://synrc.com/privacy.htm">Privacy Policy</a> |
+        <a href="http://synrc.com/feedback.htm">Feedback</a> |
+        <a href="http://synrc.com/brandbook.htm">Brandbook</a><br>
+    	Copyright &copy; 2005&ndash;2013 <a href="http://synrc.com/index.htm"> Synrc Research Center s.r.o.</a>
     </div>
 
 </div>
@@ -161,8 +209,8 @@ newsgroup available at gmane news archive.</P></DIV>
                       })();
                       
                       </script>
-                      </P><!--CUT END -->
-<!--HTMLFOOT-->
+
+<script type="text/javascript" src="http://synrc.com/hi.js"></script>
 <!--ENDHTML-->
 </BODY>
 </HTML>
